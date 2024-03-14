@@ -44,7 +44,7 @@ steps:
 
 
 
-- script: dotnet test <MyDevOpsProject.Tests/MyDevOpsProject.Tests.csproj> --logger trx --collect "Code coverage"
+- script: dotnet test MyDevOpsProject.Tests/MyDevOpsProject.Tests.csproj --logger trx --collect "Code coverage"
 - task: PublishTestResults@2
   inputs:
     testRunner: VSTest
