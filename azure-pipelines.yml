@@ -31,3 +31,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: test
+    projects: '**/*Test*/*.csproj'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+
+    
+#- script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.5.8'  
+  displayName: 'Install ReportGenerator tool'  
