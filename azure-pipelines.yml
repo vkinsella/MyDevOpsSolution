@@ -27,10 +27,10 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+#- task: VSTest@2
+ # inputs:
+   # platform: '$(buildPlatform)'
+   # configuration: '$(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
@@ -41,3 +41,11 @@ steps:
     
 #- script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.5.8'  
   displayName: 'Install ReportGenerator tool'  
+
+# ...
+# do this after your tests have run
+- script: dotnet test <test-project> --logger trx --collect "Code coverage"
+- task: PublishTestResults@2
+  inputs:
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
