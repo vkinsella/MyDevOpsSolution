@@ -39,11 +39,11 @@ steps:
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
     
-#- script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.5.8'  
+- script: 'dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.5.8'  
   displayName: 'Install ReportGenerator tool'  
 
-# ...
-# do this after your tests have run
+
+
 - script: dotnet test <MyDevOpsProject.Tests/MyDevOpsProject.Tests.csproj> --logger trx --collect "Code coverage"
 - task: PublishTestResults@2
   inputs:
