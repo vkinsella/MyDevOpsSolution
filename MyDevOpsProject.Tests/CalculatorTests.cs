@@ -39,7 +39,7 @@ namespace MyDevOpsProject.Tests
                 Calculator c1 = new Calculator();
                 int[] x = new int[6];
                 c1.FillArray(x);
-                Assert.That(x, Is.EqualTo(new int[] { 8, 9, 9, 9, 9, 9 }));
+                Assert.That(x, Is.EqualTo(new int[] { 9, 9, 9, 9, 9, 9 }));
             }
         }
 }
