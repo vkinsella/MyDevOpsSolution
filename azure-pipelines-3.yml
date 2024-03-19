@@ -31,3 +31,9 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: Docker@2
+  inputs:
+    repository: 'vk1'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
